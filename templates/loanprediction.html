@@ -1,0 +1,192 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<div class="page-content container container-plus" style="background-color: white;">
+  <!-- page header -->
+  <div class="d-lg-none page-header py-0">
+    <h1 class="text-dark-m3 pb-0 mb-0 text-125 p-1">Dashboard</h1>
+
+    <!-- page tools -->
+    <div class="page-tools d-none">
+      <div class="action-buttons text-nowrap">
+        <a
+          class="btn bgc-white btn-light-secondary mx-0"
+          href="#"
+          data-toggle="tooltip"
+          title="Details"
+        >
+          <i class="fa fa-search-plus text-blue"></i>
+        </a>
+        <a
+          class="btn bgc-white btn-light-secondary mx-0"
+          href="#"
+          data-toggle="tooltip"
+          title="Print"
+        >
+          <i class="fa fa-print text-purple"></i>
+        </a>
+        <a
+          class="btn bgc-white btn-light-secondary mx-0"
+          href="#"
+          data-toggle="tooltip"
+          title="Remove"
+        >
+          <i class="fa fa-trash-alt text-danger"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+    <form method="POST" action="{% url 'aspect_analysis' %}" >
+      <div class="d-flex flex-wrap flex-row align-item-center justify-content-start">
+      {% csrf_token %}
+      
+        
+      <select
+      class="selectpicker testselect m-1"
+      name="gender"
+      id="gender"
+      data-actions-box="true"
+    
+      data-selected-text-format="count > 3"
+      data-style="btn-white"
+      title="Select Gender">
+
+     
+              <option  value="Male" >Male</option>
+        
+          <option  value="Female" >Female</option>
+ 
+      </select>
+    
+      
+      </br>
+      <select
+      class="selectpicker testselect m-1"
+      name="Married"
+      id="Married"
+      data-actions-box="true"
+    
+      data-selected-text-format="count > 3"
+      data-style="btn-white"
+      title="Are you Married?">
+
+     
+              <option  value="Yes" >Yes</option>
+        
+          <option  value="No" >No</option>
+ 
+      </select>
+    
+      </br>
+      <select
+      class="selectpicker testselect m-1"
+      name="Dependents"
+      id="Dependents"
+      data-actions-box="true"
+     
+      data-selected-text-format="count > 3"
+      data-style="btn-white"
+      title="How many Dependents you have?">
+
+     
+              <option  value="0" >0</option>
+        
+          <option  value="1" >1</option>
+          <option  value="2" >2</option>
+          <option  value="3" >3+</option>
+ 
+      </select>
+        
+      </br>
+      <select
+      class="selectpicker testselect m-1"
+      name="Education"
+      id="Education"
+      data-actions-box="true"
+   
+      data-selected-text-format="count > 3"
+      data-style="btn-white"
+      title="Your Education?">
+
+     
+              <option  value="Graduated" >Graduated</option>
+        
+          <option  value="Not Graduated" >Not Graduated</option>
+       
+ 
+      </select>
+     
+    </br>
+    <select
+      class="selectpicker testselect m-1"
+      name="Self_Employed"
+      id="Self_Employed"
+      data-actions-box="true"
+   
+      data-selected-text-format="count > 3"
+      data-style="btn-white"
+      title="Are you Self Employed?">
+
+     
+              <option  value="Yes" >Yes</option>
+        
+          <option  value="No" >No</option>
+       
+ 
+      </select>
+    
+  </br>
+  
+  <input class="form-control form-group mt-2 ml-2" type="number" name="ApplicantIncome" placeholder="enter ApplicantIncome"  value="" 
+  style="max-width: 220px;"/>
+</br>
+<input class="form-control form-group mt-2 ml-2"  type="number" name="CoapplicantIncome" placeholder="enter CoapplicantIncome"  value="" 
+style="max-width: 220px;"/>
+</br>
+<input class="form-control form-group mt-2 ml-2" type="number" name="loanamount" placeholder="enter loan amount"  value="" 
+style="max-width: 220px;"/>
+
+</br>
+
+<select
+class="selectpicker testselect m-1"
+name="Property_Area"
+id="Property_Area"
+data-actions-box="true"
+
+data-selected-text-format="count > 3"
+data-style="btn-white"
+title="Property Area?">
+
+
+        <option  value="Semiurban" >Semiurban</option>
+  
+    <option  value="Rural" >Rural</option>
+    <option  value="Urban" >Urban</option>
+ 
+
+</select>
+
+
+</br>
+<input class="form-control form-group mt-2 ml-2" type="number"  name="Loan_Amount_Term" placeholder="enter Loan Term in Months"  value="" 
+style="max-width: 220px;"/>
+
+    
+        <div class="ml-lg-2 ml-md-2 ml-sm-5" style="min-width: 200px;">
+        <button type="submit" class="btn btn-primary m-2">Get Result</button>
+        </div>
+
+        
+    </div>
+    </form>
+
+
+    
+
+  <!-- /.row -->
+
+
+  {% endblock %}
+</div>
+

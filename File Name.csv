@@ -1,0 +1,2 @@
+Gender,Married,Dependents,Education,Self_Employed,ApplicantIncome,CoapplicantIncome,LoanAmount,Credit_History,Property_Area,Loan_Amount_Term,Dependents_EMI_mean,LoanAmount_Term_per_TotalIncome,EMI_per_Loan_Amount_Term,EMI_per_LoanAmount,Property_Area_LoanAmount_per_TotalIncome_mean,Dependents_LoanAmount_Sum,TotalIncome_Bins,Loan_Amount_Term_Bins
+0,0,0,0,0,0,0,0,0,0,0,1.32,0.08,0.004,0.009,0.0234,48904.675199,3.0,0.1

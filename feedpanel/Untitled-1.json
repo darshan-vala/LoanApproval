@@ -1,0 +1,90 @@
+[{
+        'sentiment': 0.9,
+        'reviewdata': < reviewdata: reviewdata object(2340) >
+    }, {
+        'sentiment': 0.5,
+        'reviewdata': < reviewdata: reviewdata object(2350) >
+    }, {
+        'sentiment': 0.9,
+        'reviewdata': < reviewdata: reviewdata object(2397) >
+    }, {
+        'sentiment': 0.7,
+        'reviewdata': < reviewdata: reviewdata object(2400) >
+    }, {
+        'sentiment': 0.5,
+        'reviewdata': < reviewdata: reviewdata object(2544) >
+    }, {
+        'sentiment': 0.9,
+        'reviewdata': < reviewdata: reviewdata object(2666) >
+    }, {
+        'sentiment': 0.9,
+        'reviewdata': < reviewdata: reviewdata object(2680) >
+    }, {
+        'sentiment': -0.2,
+        'reviewdata': < reviewdata: reviewdata object(2720) >
+    }, {
+        'sentiment': 0.9,
+        'reviewdata': < reviewdata: reviewdata object(2730) >
+    }, {
+        'sentiment': 0.9,
+        'reviewdata': < reviewdata: reviewdata object(2758) >
+    }, {
+        'sentiment': 0.5,
+        'reviewdata': < reviewdata: reviewdata object(2780) >
+    }, {
+        'sentiment': 0.4,
+        'reviewdata': < reviewdata: reviewdata object(2782) >
+    }, {
+        'sentiment': 0.6,
+        'reviewdata': < reviewdata: reviewdata object(2795) >
+    }, {
+        'sentiment': 0.6,
+        'reviewdata': < reviewdata: reviewdata object(2848) >
+    }, {
+        'sentiment': -0.8,
+        'reviewdata': < reviewdata: reviewdata object(2851) >
+    },
+    {
+        'sentiment': 0.9,
+        'reviewdata': < reviewdata: reviewdata object(2894) >
+    }, {
+        'sentiment': 0.9,
+        'reviewdata': < reviewdata: reviewdata object(3103) >
+    }, {
+        'sentiment': 0.9,
+        'reviewdata': < reviewdata: reviewdata object(3179) >
+    }, {
+        'sentiment': 0.8,
+        'reviewdata': < reviewdata: reviewdata object(3280) >
+    }, {
+        'sentiment': 0.8,
+        'reviewdata': < reviewdata: reviewdata object(3347) >
+    }, {
+        'sentiment': 0.8,
+        'reviewdata': < reviewdata: reviewdata object(3355) >
+    }, {
+        'sentiment': -0.8,
+        'reviewdata': < reviewdata: reviewdata object(3366) >
+    }, {
+        'sentiment': 0.4,
+        'reviewdata': < reviewdata: reviewdata object(3410) >
+    }, {
+        'sentiment': 0.2,
+        'reviewdata': < reviewdata: reviewdata object(3422) >
+    }, {
+        'sentiment': 0.6,
+        'reviewdata': < reviewdata: reviewdata object(3489) >
+    }, {
+        'sentiment': 0.6,
+        'reviewdata': < reviewdata: reviewdata object(3542) >
+    }, {
+        'sentiment': -0.8,
+        'reviewdata': < reviewdata: reviewdata object(3545) >
+    }, {
+        'sentiment': 0.9,
+        'reviewdata': < reviewdata: reviewdata object(3588) >
+    }, {
+        'sentiment': 0.9,
+        'reviewdata': < reviewdata: reviewdata object(3797) >
+    }
+]

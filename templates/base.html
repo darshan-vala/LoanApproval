@@ -1,0 +1,487 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1"
+    />
+    <base href="../" />
+    <title>FeedBuzz</title>
+
+    <!-- include common vendor stylesheets & fontawesome -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static './node_modules/bootstrap/dist/css/bootstrap.css' %}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static './node_modules/@fortawesome/fontawesome-free/css/fontawesome.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static './node_modules/@fortawesome/fontawesome-free/css/regular.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static './node_modules/@fortawesome/fontawesome-free/css/brands.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static './node_modules/@fortawesome/fontawesome-free/css/solid.css' %}"
+    />
+
+    <!-- include vendor stylesheets used in "Dashboard 2" page. see "/views//pages/partials/dashboard-2/@vendor-stylesheets.hbs" -->
+
+    <!-- include fonts -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static './dist/css/ace-font.css' %}"
+    />
+
+    <!-- ace.css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static './dist/css/ace.css' %}"
+    />
+
+    <!-- favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static './logo.jpg' %}"
+    />
+
+    <!-- "Dashboard 2" page styles, specific to this page for demo only -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static './views/pages/dashboard-2/@page-style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static './dist/css/ace-themes.css' %}"
+    />
+
+    <style>
+      .border-vr {
+        border-left: 3px solid gray !important;
+      }
+      @media (max-width: 767px) {
+        .border-vr {
+          border: 0px solid !important;
+        }
+      }
+    </style>
+
+    <!-- include common vendor scripts used in demo pages -->
+    <script src="{% static './node_modules/jquery/dist/jquery.js' %}"></script>
+
+    <script src="{% static './node_modules/popper.js/dist/umd/popper.js' %}"></script>
+    <script src="{% static './node_modules/bootstrap/dist/js/bootstrap.js' %}"></script>
+
+    <!-- include vendor scripts used in "Dashboard 2" page. see "/views//pages/partials/dashboard-2/@vendor-scripts.hbs" -->
+    <script src="{% static './node_modules/chart.js/dist/Chart.js' %}"></script>
+
+    <script src="{% static './dist/js/ace.js' %}"></script>
+
+    <!-- demo.js is only for Ace's demo and you shouldn't use it -->
+    <script src="{% static './app/browser/demo.js' %}"></script>
+
+    <!-- "Dashboard 2" page script to enable its demo functionality -->
+    <!-- <script src="{% static './views/pages/dashboard-2/@page-script.js' %}"></script> -->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap-select.min.css' %}" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="{% static 'bootstrap-select.min.js' %}"></script>
+    <!-- demo.js is only for Ace's demo and you shouldn't use it -->
+  </head>
+
+  <body onload="loading()">
+    <!-- <div
+    id="loader"
+    class="justify-content-center align-items-center bg-secondary d-flex"
+    style="
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      z-index:9999999!important;
+    "
+  >
+    <div class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div> -->
+  
+    <div class="body-container">
+  
+      <div class="main-container" id="maincontainer">
+        <div
+          id="sidebar"
+          class="sidebar sidebar-dark sidebar-color sidebar-fixed sidebar-backdrop expandable"
+          data-swipe="true"
+          data-dismiss="true"
+        >
+          <div class="sidebar-inner">
+            <div class="ace-scroll flex-grow-1 mt-1px" data-ace-scroll="{}">
+              <!-- all sidebar header is inside scrollable area -->
+              <!-- .navbar-brand inside sidebar, only shown in desktop view -->
+              <div
+                class="d-none d-xl-flex sidebar-section-item fadeable-left fadeable-top"
+              >
+                <div class="fadeinable">
+                  <!-- shown when sidebar is collapsed -->
+                  <div class="py-2 mx-1" id="sidebar-header-brand1">
+                    <a class="navbar-brand text-140">
+                      <img
+                        width="50px"
+                        height="50px"
+                        src="{% static 'feedbuzz.jpeg' %}"
+                        class="p-2px border-2 radius-round"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <div class="fadeable w-100">
+                  <!-- shown when sidebar is full-width -->
+                  <div class="py-2 text-center mx-3" id="sidebar-header-brand2">
+                    <a
+                      class="navbar-brand ml-n2 text-140 text-white"
+                      href="{% url 'home' %}"
+                    >
+                      <img
+                        width="50px"
+                        height="50px"
+                        src="{% static 'feedbuzz.jpeg' %}"
+                        class="p-2px border-2 radius-round"
+                      />
+                      FeedBuzz
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- /.sidebar-section-item  -->
+
+              <!-- the user avatar and image -->
+              <div class="sidebar-section-item pt-2 fadeable-left fadeable-top">
+               
+
+                <div class="fadeable hideable">
+                  <div class="py-2 d-flex flex-column align-items-center">
+                    <img
+                      alt="Natalie's avatar"
+                      src="{% static 'logopitalite.jpg' %}"
+                      class="p-2px border-2 brc-primary-m2 radius-round"
+                    />
+
+                    <div class="text-center mt-1" id="id-user-info">
+                      <a
+                        href="#id-user-menu"
+                        class="d-style pos-rel collapsed text-orange-l2 accordion-toggle no-underline bgc-h-white-tp9 radius-1 px-1 py-2px"
+                        data-toggle="collapse"
+                        aria-expanded="false"
+                      >
+                        <span
+                          class="text-95 font-bolder"
+                          style="text-transform: capitalize"
+                          >{{request.session.username}}</span
+                        >
+                        <i class="fa fa-caret-down text-90 d-collapsed"></i>
+                        <i class="fa fa-caret-up text-90 d-n-collapsed"></i>
+                      </a>
+                      <div class="text-white text-85">
+                        {{request.session.email}}
+                      </div>
+                    </div>
+                    <!-- /#id-user-info -->
+
+                    <div class="collapse" id="id-user-menu">
+                      <div class="mt-3">
+                        <a
+                          href="#"
+                          class="btn bgc-black-tp8 btn-h-outline-blue py-2 px-1"
+                        >
+                          <i
+                            class="fa fa-envelope w-4 text-110 text-blue-m2"
+                          ></i>
+                        </a>
+
+                        <a
+                          href="#"
+                          class="btn bgc-black-tp8 btn-h-outline-purple py-2 px-1"
+                        >
+                          <i
+                            class="fa fa-users w-4 text-110 text-purple-m2"
+                          ></i>
+                        </a>
+
+                        <a
+                          href="#"
+                          class="btn bgc-black-tp8 btn-h-outline-orange py-2 px-1"
+                        >
+                          <i class="fa fa-star w-4 text-110 text-orange-m2"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <!-- /.collapse -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- optional `nav` tag -->
+              <nav aria-label="Main">
+                <ul
+                  class="nav flex-column mt-2 has-active-border active-on-top"
+                >
+                 
+
+                  
+                 
+
+                
+              
+
+                  <!-- <li class="nav-item">
+                    <a  class="nav-link">
+                
+                      <i class="nav-icon fas fa-cog"></i>
+                      <span class="nav-text fadeable">
+                        <span>Settings</span>
+                      </span>
+                    </a>
+
+                    <b class="sub-arrow"></b>
+                  </li> -->
+                </ul>
+              </nav>
+            </div>
+            <!-- /.ace-scroll -->
+          </div>
+        </div>
+
+        <div role="main" class="main-content">
+          <nav
+            class="navbar navbar-sm navbar-expand-lg navbar-fixed navbar-white"
+          >
+            <div class="navbar-inner shadow-md">
+              <button
+                type="button"
+                id="btn-nav"
+                class="btn btn-burger align-self-center ml-25 mr-2 d-none d-xl-flex btn-h-lighter-blue"
+                data-toggle="sidebar"
+                data-target="#sidebar"
+                aria-controls="sidebar"
+                aria-expanded="true"
+                aria-label="Toggle sidebar"
+              >
+                <span class="bars text-default"></span></button
+              ><!-- sidebar toggler button -->
+
+              <div
+                class="d-flex h-100 justify-content-xl-between align-items-center"
+              >
+                <button
+                  type="button"
+                  class="btn btn-burger burger-arrowed static collapsed ml-2 d-flex d-xl-none btn-h-lighter-blue"
+                  data-toggle-mobile="sidebar"
+                  data-target="#sidebar"
+                  aria-controls="sidebar"
+                  aria-expanded="false"
+                  aria-label="Toggle sidebar"
+                >
+                  <span class="bars text-default"></span></button
+                ><!-- mobile sidebar toggler button -->
+
+                <a
+                  class="navbar-brand d-xl-none mx-1 text-dark-m3 text-130"
+                  href="#"
+                >
+                <img
+                width="45px"
+                height="45px"
+                src="{% static 'feedbuzz.jpeg' %}"
+                class="p-2px border-2 radius-round"
+              />                  FeedBuzz
+                </a>
+
+                <!-- the small Dashboard selection menu -->
+                <div class="d-inline-flex">
+                  <h2
+                    class="d-none d-xl-inline-block text-140 text-dark-m2 mb-0 pb-1"
+                  >
+                    {{title}}
+                  </h2>
+                </div>
+              </div>
+
+              <!-- search box for MOBILE view only -->
+              <div class="d-lg-none navbar-content flex-grow-0 ml-auto">
+             
+
+                <div
+                  class="collapse navbar-collapse navbar-backdrop"
+                  id="navbarSearch"
+                >
+                  <div>
+                    <!-- by wrapping input element inside a "FORM[data-submit=dismiss]", when you submit the form, dropdown will be hidden -->
+                    <form
+                      class="d-flex align-items-center pl-4"
+                      data-submit="dismiss"
+                    >
+                      <i class="fa fa-search text-blue-m1 mr-n425"></i>
+                      <input
+                        type="text"
+                        class="px-2 mx-0 w-100 autofocus border-1 py-35 pr-45 radius-round"
+                        placeholder="Start searching ..."
+                        aria-label="Search"
+                      />
+                      <a
+                        href="#"
+                        class="btn border-0 ml-n475 radius-100 py-15 btn-text-lightgrey btn-h-light-blue px-25 pos-rel"
+                      >
+                        <i class="fa fa-microphone"></i>
+                      </a>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- #navbarMenu2 toggler -->
+              
+
+              <div
+                class="ml-auto navbar-menu collapse navbar-collapse navbar-backdrop"
+                id="navbarMenu2"
+              ></div>
+
+              <!-- #navbarMenu toggler -->
+              <button
+                class="navbar-toggler ml-1 mr-2 px-1"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navbar menu 1"
+              >
+              <img
+              alt="Natalie's avatar"
+              src="{% static 'logopitalite.jpg' %}"
+              width="48"
+              class="p-2px border-2 brc-primary-tp2 radius-round"
+            />
+              </button>
+
+              <div
+                class="ml-auto mr-xl-3 navbar-menu collapse navbar-collapse navbar-backdrop"
+                id="navbarMenu"
+              >
+                <div class="navbar-nav">
+                  <ul class="nav has-active-border">
+                    <!-- search box for DESKTOP view only -->
+                  
+                    <li class="nav-item dd-backdrop dropdown dropdown-mega">
+                      <a
+                        class="nav-link dropdown-toggle pl-lg-3 pr-lg-4"
+                        data-toggle="dropdown"
+                        href="#"
+                        role="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        <i
+                          class="fas fa-sign-out-alt text-110 icon-vertical mr-lg-1"
+                        ></i>
+
+                        <span class="d-inline-block d-lg-none ml-2">Logout</span
+                        ><!-- show only on mobile -->
+                        
+
+                        <i class="caret fa fa-angle-left d-block d-lg-none"></i>
+                        <div class="dropdown-caret brc-warning-l2"></div>
+                      </a>
+                      <div
+                        class="shadow dropdown-menu dropdown-animated animated-1 dropdown-xs p-0 bg-white brc-warning-l1"
+                      >
+                        <div
+                          class="bgc-orange-l2 py-25 px-4 border-b-1 brc-orange-l2"
+                        >
+                          <span
+                            class="text-dark-tp4 text-600 text-90 text-uppercase"
+                          >
+                     
+                            <i
+                              class="fas fa-sign-out-alt mr-2px text-warning-d2 text-120"
+                            ></i>
+                            Do you want to Logout ?
+                          </span>
+                        </div>
+
+                       
+
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          {% block content %} {% endblock %}
+          <!-- this footer is shown in device width above `sm` -->
+
+          <!-- scroll to top button -->
+          <div class="footer-tools mb-5 mb-sm-0">
+            <a
+              href="#"
+              class="btn-scroll-up btn btn-white brc-black-tp6 px-25 py-2 text-95 border-2 radius-round mb-25 mr-2"
+            >
+              <i class="fa fa-angle-double-up w-2 h-2"></i>
+            </a>
+          </div>
+
+          <!-- this footer is shown in mobile devices below `sm` -->
+         
+        </div>
+      </div>
+      <!-- <script>
+          $("#maincontainer").hide();        
+      </script> -->
+    </div>
+
+    <!-- include ace.js -->
+    <script src="{% static './dist/js/ace.js' %}"></script>
+
+    <!-- demo.js is only for Ace's demo and you shouldn't use it -->
+
+    <script src="{% static './app/browser/demo.js' %}">
+      console.clear();
+    </script>
+
+    <!-- "Dashboard 2" page script to enable its demo functionality -->
+    <!-- <script src="{% static './views/pages/dashboard-2/@page-script.js' %}"> -->
+      <script>
+        function loading() {
+        // console.log("called");
+        //   $("#maincontainer").show();
+        //   $("#loader").remove();
+  
+        }
+      </script>
+  </body>
+</html>

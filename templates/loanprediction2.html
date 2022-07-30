@@ -1,0 +1,90 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<div class="page-content container container-plus" style="background-color: white;">
+  <!-- page header -->
+  <div class="d-lg-none page-header py-0">
+    <h1 class="text-dark-m3 pb-0 mb-0 text-125 p-1">Dashboard</h1>
+
+    <!-- page tools -->
+    <div class="page-tools d-none">
+      <div class="action-buttons text-nowrap">
+        <a
+          class="btn bgc-white btn-light-secondary mx-0"
+          href="#"
+          data-toggle="tooltip"
+          title="Details"
+        >
+          <i class="fa fa-search-plus text-blue"></i>
+        </a>
+        <a
+          class="btn bgc-white btn-light-secondary mx-0"
+          href="#"
+          data-toggle="tooltip"
+          title="Print"
+        >
+          <i class="fa fa-print text-purple"></i>
+        </a>
+        <a
+          class="btn bgc-white btn-light-secondary mx-0"
+          href="#"
+          data-toggle="tooltip"
+          title="Remove"
+        >
+          <i class="fa fa-trash-alt text-danger"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+   
+    
+      <h4 class="font-weight-bold ml-2">Gender : {{ gender }}</h4>
+    
+      <h4 class="font-weight-bold ml-2">Loan Amount : {{ loanamount }}
+      </h4>
+      
+      <h4 class="font-weight-bold ml-2">Married : {{ Married }}</h4>
+   
+      <h4 class="font-weight-bold ml-2">Dependents : {{ Dependents }}
+      </h4>
+      
+      <h4 class="font-weight-bold ml-2">Education : {{ Education }}</h4>
+   
+      <h4 class="font-weight-bold ml-2">Self_Employed: {{ Self_Employed }}
+      </h4>
+      
+      <h4 class="font-weight-bold ml-2">ApplicantIncome : {{ ApplicantIncome }}</h4>
+   
+      <h4 class="font-weight-bold ml-2">CoapplicantIncome : {{ CoapplicantIncome }}
+      </h4>
+      
+    
+      <h4 class="font-weight-bold ml-2">Property_Area : {{ Property_Area }}
+      </h4>
+      
+      <h4 class="font-weight-bold ml-2">Loan_Amount_Term : {{ Loan_Amount_Term }}</h4>
+    </br>
+  
+     
+   
+
+
+      {% if result == 1 %}
+      <h2 class="font-weight-bold ml-2">Final Result : Approved
+      </h2>
+      {% else %}
+      <h2 class="font-weight-bold ml-2">Final Result : Rejected
+      </h2>
+      {% endif %}
+        
+   
+
+
+    
+
+  <!-- /.row -->
+
+
+  {% endblock %}
+</div>
+

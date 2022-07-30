@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<div class="page-content container container-plus" style="background-color: white;">
+  <!-- page header -->
+  <div class="d-lg-none page-header py-0">
+    <h1 class="text-dark-m3 pb-0 mb-0 text-125 p-1">Dashboard</h1>
+
+    <!-- page tools -->
+    <div class="page-tools d-none">
+      <div class="action-buttons text-nowrap">
+        <a
+          class="btn bgc-white btn-light-secondary mx-0"
+          href="#"
+          data-toggle="tooltip"
+          title="Details"
+        >
+          <i class="fa fa-search-plus text-blue"></i>
+        </a>
+        <a
+          class="btn bgc-white btn-light-secondary mx-0"
+          href="#"
+          data-toggle="tooltip"
+          title="Print"
+        >
+          <i class="fa fa-print text-purple"></i>
+        </a>
+        <a
+          class="btn bgc-white btn-light-secondary mx-0"
+          href="#"
+          data-toggle="tooltip"
+          title="Remove"
+        >
+          <i class="fa fa-trash-alt text-danger"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+    <form method="POST" action="{% url 'aspect_analysis' %}" >
+      <div class="d-flex flex-wrap flex-row align-item-center justify-content-start">
+      {% csrf_token %}
+      
+    
+    
+        <input class="form-control form-group mt-2 ml-2" name="enter gender" placeholder="enter gender"  value="{{selected_mention}}" 
+        style="max-width: 220px;"/>
+
+        <input class="form-control form-group mt-2 ml-2" name="enter loan" placeholder="enter loan"  value="{{selected_mention}}" 
+        style="max-width: 220px;"/>
+    
+        <div class="ml-lg-2 ml-md-2 ml-sm-5" style="min-width: 200px;">
+        <button type="submit" class="btn btn-primary m-2">Find</button>
+        </div>
+
+        
+    </div>
+    </form>
+
+
+    
+
+  <!-- /.row -->
+
+
+  {% endblock %}
+</div>
+
